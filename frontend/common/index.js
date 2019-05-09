@@ -17,5 +17,20 @@ import './index.css';
 Koji.pageLoad();
 window.Koji = Koji;
 
+require('expose-loader?PIXI!phaser-ce/build/custom/pixi.js');
+require('expose-loader?p2!phaser-ce/build/custom/p2.js');
+require('expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js');
+
 require('script-loader!app/index.js');
-new p5();
+
+if (module.hot) {
+    module.hot.dispose(() => {
+    })
+
+    module.hot.accept('script-loader!app/index.js', () => {
+        let oldCanvas = document.getElementsByTagName('canvas')[0];
+        oldCanvas.parentNode.removeChild(oldCanvas);
+
+        require('script-loader!app/index.js');
+    });
+}

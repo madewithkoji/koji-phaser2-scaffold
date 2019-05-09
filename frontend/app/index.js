@@ -1,26 +1,18 @@
-let img;
-let button;
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var sprite;
 
-function setup() {
-  // make a full screen canvas
-  createCanvas(window.innerWidth, window.innerHeight);
-  img = loadImage(Koji.config.images.mouse); // Load the image
-
+function preload() {
+    game.load.crossOrigin = 'anonymous';
+    game.load.image('mouse', Koji.config.images.mouse);
 }
 
-function draw() {
-  // set the background color from the configuration options
-  background(Koji.config.colors.backgroundColor);
+function create() {
+    game.stage.backgroundColor = Koji.config.colors.backgroundColor;
+    sprite = game.add.sprite(0, 0, 'mouse');
+    game.add.text(16, 100, Koji.config.strings.content, { fontSize: '22px', fill: Koji.config.colors.textColor });
+}
 
-  // format our text
-  textSize(24);
-  fill(Koji.config.colors.textColor);
-  textAlign(CENTER);
-
-  // print out our text
-  text(Koji.config.strings.content, window.innerWidth / 2, 100);
-
-  // setup an image to follow our mouse
-  let imageSize = 120;
-  image(img, mouseX - (imageSize / 2), mouseY - (imageSize / 2), imageSize, imageSize);
+function update() {
+    sprite.x = game.input.x - (sprite.width / 2);
+    sprite.y = game.input.y - (sprite.height/ 2);
 }

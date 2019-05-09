@@ -1,9 +1,10 @@
 {
   "metadata": {
-    "title": "Koji P5 Scaffold",
-    "description": "A React scaffold modified specifically for Koji. Easily customizable at gokoji.com.",
-    "image": "https://images.koji-cdn.com/025a4ca3-2c61-4cf2-b821-55b7023c47dc/kojireact.png",
-    "icon": "https://objects.koji-cdn.com/025a4ca3-2c61-4cf2-b821-55b7023c47dc/94e432a7-951b-4b41-a726-d5d9fc66c533.ico",
+    "name": "Koji Phaser 2 Scaffold",
+    "short_name": "Koji Phaser",
+    "description": "A Phaser 2 scaffold modified specifically for Koji. Easily customizable at gokoji.com.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Phaser_%28game_framework%29_logo.png/220px-Phaser_%28game_framework%29_logo.png",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Phaser_%28game_framework%29_logo.png/220px-Phaser_%28game_framework%29_logo.png",
     "icon192": "",
     "icon512": "",
     "gaCode": ""
@@ -16,9 +17,14 @@
       "source": "metadata.json",
       "fields": [
         {
-          "key": "title",
+          "key": "name",
           "name": "Name for your App",
           "description": "Will show up as title on Google and Facebook"
+        },
+        {
+          "key": "short_name",
+          "name": "Short Name for your App",
+          "description": "A shortened version of tyour App name for PWA's"
         },
         {
           "key": "description",

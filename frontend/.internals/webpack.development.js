@@ -22,7 +22,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   watch: true,
-  entry: "./common/index.js",
+  entry: [
+      "webpack/hot/dev-server",
+      "./common/index.js"
+  ],
   output: {
     path: path.resolve(process.cwd(), 'build'),
     filename: '[name].js',
